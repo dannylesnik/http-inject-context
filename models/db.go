@@ -18,14 +18,6 @@ const (
 	SQLKEY key = "SQL"
 )
 
-//Datastore - Generic Database unterface
-type Datastore interface {
-	AddPersonToDB(person Person) (*Person, error)
-	GetPerson(id string) (*Person, error)
-	DeletePerson(id string) (int64, error)
-	UpdatePerson(person Person) (int64, error)
-}
-
 //InitDB - creates new =connection instance
 func InitDB(dataSourceName string) (*DB, error) {
 	db, err := sql.Open("mysql", dataSourceName)
